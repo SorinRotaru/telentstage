@@ -1,0 +1,40 @@
+{
+  "name": "talents-stage-backend",
+  "version": "1.0.0",
+  "description": "Talents Stage API - TypeScript + MySQL backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node server.js",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "db:migrate": "ts-node src/config/migrate.ts",
+    "db:seed": "ts-node src/config/seed.ts",
+    "seed:make-videos": "node scripts/generate-videos-from-images.js",
+    "seed:make-videos:1000": "node scripts/generate-videos-from-images.js --input-dir ./seed/images --output-dir ./seed/videos --count 1000",
+    "seed:load": "node scripts/seed-video-load.js",
+    "seed:load:test": "node scripts/seed-video-load.js --videos 10 --users 3 --concurrency 2",
+    "seed:load:1000": "node scripts/seed-video-load.js --videos 1000 --users 50 --concurrency 4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.11.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "@types/uuid": "^10.0.0",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
